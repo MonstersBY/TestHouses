@@ -1,3 +1,4 @@
+import React from "react";
 import { Logo } from "../small/small";
 import styles from "./footer.module.scss";
 

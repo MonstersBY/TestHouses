@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "ES2017",
+    "target": "ES2022",
     "lib": [
       "dom",
       "dom.iterable",
@@ -17,6 +17,10 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "jsx": "preserve",
+    "typeRoots": ["./node_modules/@types", "./node_modules/@yandex/ymaps3-types"],
+    "paths": {
+      "ymaps3": ["./node_modules/@yandex/ymaps3-types"]
+    },
     "plugins": [
       {
         "name": "next"
