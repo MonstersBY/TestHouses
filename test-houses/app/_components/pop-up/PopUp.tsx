@@ -1,10 +1,44 @@
 'use client'
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import "./popup.scss";
 import Image from "next/image";
-import { log } from "node:console";
+import { useMask } from "@react-input/mask";
+
+const token = '7523702642:AAEVUQjlHKcdGZY5Yss14HTsGXeJEEMIRmM'
 
 function PopUp () {
+
+  const [tel, setTel] = useState({number: '', comments: '', check: false})
+    const inputRef = useMask({
+      mask: '+375 (___) ___-__-__',
+      replacement: { _: /\d/ },
+    });
+  
+    async function handleSubmit(e) {
+      e.preventDefault()
+      if(tel.number.length == 20 && tel.check) {
+        const text = `Пришла заявка \nНомер телефона: ${tel.number}\nКомментарий: ${tel.comments}`
+        
+        try {
+          const response = await fetch(`https://api.telegram.org/bot${token}/sendMessage`,{
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+              chat_id: '@TestBotHouses',
+              text,
+            })
+          })
+          setTel({...tel, number: '', comments: '', check: false})
+          e.target.form.reset()
+        } catch (error) {
+  
+        }
+        document.querySelector('.popup.active').classList.remove("active")
+        document.querySelector('body').classList.remove("modal")
+      }
+    }
   
   useEffect(() => {
     document.addEventListener('click', OpenPopup);
@@ -47,24 +81,24 @@ function PopUp () {
               <div className="h4">Обратный звонок</div>
               <div className="text3">Заполните форму ниже, и наш специалист свяжется <br className="desktop"/> с вами в ближайшее время.</div>
             </div>
-            <form className="form" onSubmit={ClosePopup}>
+            <form className="form">
               <div className="form-container">
                 <label htmlFor='request-tel' className="h6 form-text">Телефон<span style={{color: 'var(--orange-m)'}}>*</span></label>
-                <input className="text-field-b" id='request-tel' type="text" placeholder='+375 (99) 999-99-99'/>
+                <input ref={inputRef} className="text-field-b" id='request-tel' type="text" placeholder='+375 (99) 999-99-99' onChange={(e)=> setTel({...tel, number: e.target.value})}/>
               </div>
               <div className="form-container">
                 <label htmlFor='request-text' className="h6 form-text">Ваш комментарий</label>
-                <textarea className="text-field-b" id='request-text' placeholder='Ваш комментарий'/>
+                <textarea className="text-field-b" id='request-text' placeholder='Ваш комментарий' onChange={(e)=> setTel({...tel, comments: e.target.value})}/>
               </div>
               <div className="form-end">
                 <label className="form-checkbox">
                   <div className="form-checkbox__box">
-                    <input type="checkbox" />
+                    <input type="checkbox" checked={tel.check} onChange={(e)=>setTel({...tel,check: !tel.check})}/>
                     <div></div>
                   </div>
                   <span className="text3">Согласие на обработку персональных данных</span>
                 </label>
-                <button className="btn-normal">Отправить</button>
+                <button className="btn-normal" onClick={handleSubmit}>Отправить</button>
               </div>
             </form>
           </div>
