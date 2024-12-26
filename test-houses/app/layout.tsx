@@ -5,6 +5,7 @@ import { Header } from "./_components/header/Header";
 import "./globals.css";
 import { Footer } from "./_components/footer/Footer";
 import { YMapLoader } from './_components/map/YMapLoader';
+import { PopUp } from "./_components/pop-up/PopUp";
 
 export const metadata = {
   title: "Houses",
@@ -18,6 +19,7 @@ export default function RootLayout({ children }) {
         <Header/>
         {children}
         <Footer/>
+        <PopUp/>
         <YMapLoader />
       </body>
     </html>
