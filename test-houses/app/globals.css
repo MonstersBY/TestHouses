@@ -46,6 +46,9 @@ body {
     color: var(--text-b);
     background-color: var(--white);
 }
+body.modal {
+  overflow: hidden;
+}
 
 input,
 textarea {
@@ -357,9 +360,54 @@ section {
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
 }
 .btn-normal:hover {
   background: var(--orange-l);
+}
+.btn-text {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: Helvetica;
+  font-weight: 400;
+  font-size: 1.8rem;
+  line-height: 2rem;
+  cursor: pointer;
+  transition: color 0.5s ease-out;
+}
+.btn-text svg {
+  width: 2.4rem;
+  height: 2.4rem;
+  stroke: var(--orange-m);
+  transition: stroke 0.5s ease-out;
+}
+.btn-text:hover {
+  color: var(--orange-l);
+}
+.btn-text:hover svg {
+  stroke: var(--orange-l);
+}
+
+.btn-border {
+  font-family: Gilroy;
+  font-weight: 800;
+  font-size: 2rem;
+  line-height: 2.4rem;
+  border: 2px solid var(--orange-m);
+  color: var(--orange-m);
+  transition: border-color 0.5s ease-out, color 0.5s ease-out;
+  display: block;
+  height: 5.2rem;
+  width: 23.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+.btn-border:hover {
+  border-color: var(--orange-l);
+  color: var(--orange-l);
 }
 
 .form-checkbox__box {
@@ -442,5 +490,34 @@ section {
   }
   .form-checkbox {
     gap: 0.6rem;
+  }
+}
+/* .swiper {
+  overflow: initial;
+} */
+.swiper-custom-pagination {
+  position: absolute;
+  z-index: 3;
+  display: flex;
+  gap: 1.2rem;
+  bottom: 6.4rem;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.swiper-custom-pagination .swiper-pagination-bullet {
+  width: 8px;
+  height: 8px;
+  background: var(--white);
+  border-radius: 4rem;
+  transition: width 0.5s ease-in-out;
+}
+.swiper-custom-pagination .swiper-pagination-bullet-active {
+  width: 24px;
+  background: var(--orange-m);
+}
+
+@media (max-width: 48em) {
+  .swiper-custom-pagination {
+    bottom: 2.4rem;
   }
 }
