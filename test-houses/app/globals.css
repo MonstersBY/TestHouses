@@ -22,7 +22,9 @@ html {
 }
 
 body {
-  --bg-color: #FBFDFD;
+  --white:  #fbfdfd ;
+  --white-trans50: rgb( 251, 253, 253, 0.6);
+  --white-trans10: rgb( 251, 253, 253, 0.05);
   --grey: #848484;
   --orange-l: #F39779;
   --orange-m: #E97550;
@@ -41,8 +43,8 @@ body {
     line-height: 1.2;
     margin: 0;
     padding: 0;
-    color: #031e16;
-    background-color: var(--bg-color);
+    color: var(--text-b);
+    background-color: var(--white);
 }
 
 input,
@@ -146,7 +148,7 @@ section {
     html {
         font-size: 5px;
         font-size: 1.5625vw;
-        font-size: calc((100 / 375) * 5vw);
+        font-size: calc((100 / 375) * 10vw);
         -webkit-text-size-adjust: none;
     }
 
@@ -163,4 +165,179 @@ section {
     section {
         margin-bottom: 17.3rem;
     }
+}
+
+.mobile {
+  display: none;
+}
+@media (max-width: 48em) {
+  .desktop {
+    display: none;
+  }
+  .mobile {
+    display: block;
+  }
+}
+
+.h1 {
+  font-family: Involve;
+  font-weight: 500;
+  font-size: 6.4rem;
+  line-height: 130%;
+}
+.h2 {
+  font-family: Gilroy;
+  font-weight: 800;
+  font-size: 4.8rem;
+  line-height: 130%;
+}
+.h3 {
+  font-family: Helvetica;
+  font-weight: 400;
+  font-size: 4rem;
+  line-height: 130%;
+}
+.h4 {
+  font-family: Gilroy;
+  font-weight: 800;
+  font-size: 3.2rem;
+  line-height: 130%;
+}
+.h5 {
+  font-family: Gilroy;
+  font-weight: 800;
+  font-size: 2.2rem;
+  line-height: 130%;
+}
+.h6 {
+  font-family: Helvetica;
+  font-weight: 400;
+  font-size: 1.8rem;
+  line-height: 130%;
+}
+
+.text1 {
+  font-family: Helvetica;
+  font-weight: 400;
+  font-size: 2.6rem;
+  line-height: 140%;
+}
+.text2 {
+  font-family: Helvetica;
+  font-weight: 400;
+  font-size: 1.8rem;
+  line-height: 140%;
+}
+.text3 {
+  font-family: Helvetica;
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 140%;
+}
+.text4 {
+  font-family: Helvetica;
+  font-weight: 400;
+  font-size: 1.4rem;
+  line-height: 140%;
+}
+.text4-b {
+  font-family: Helvetica;
+  font-weight: 600;
+  font-size: 1.4rem;
+  line-height: 140%;
+}
+.text5 {
+  font-family: Helvetica;
+  font-weight: 400;
+  font-size: 1.2rem;
+  line-height: 140%;
+}
+
+.text-btn-l {
+  font-family: Gilroy;
+  font-weight: 800;
+  font-size: 2rem;
+  line-height: 2.4rem;
+}
+.text-btn-m {
+  font-family: Helvetica;
+  font-weight: 400;
+  font-size: 1.8rem;
+  line-height: 2rem;
+}
+
+.text-field-b {
+  font-family: Helvetica;
+  font-weight: 400;
+  font-size: 1.8rem;
+  line-height: 2.4rem;
+}
+.text-field-s {
+  font-family: Helvetica;
+  font-weight: 400;
+  font-size: 1.6rem;
+  line-height: 2.4rem;
+}
+
+@media (max-width: 48em) {
+  .h1 {
+    font-size: 2.8rem;
+    line-height: 120%;
+  }
+  .h2 {
+    font-size: 2.4rem;
+    line-height: 120%;
+  }
+  .h3 {
+    font-size: 2.2rem;
+    line-height: 120%;
+  }
+  .h4 {
+    font-size: 2rem;
+    line-height: 120%;
+  }
+  .h5 {
+    font-size: 1.8rem;
+    line-height: 120%;
+  }
+  .h6 {
+    font-size: 1.6rem;
+    line-height: 120%;
+  }
+  
+  .text1 {
+    font-size: 1.6rem;
+    line-height: 130%;
+  }
+  .text2 {
+    font-size: 1.5rem;
+    line-height: 130%;
+  }
+  .text3 {
+    font-size: 1.4rem;
+    line-height: 130%;
+  }
+  .text4 {
+    font-size: 1.3rem;
+    line-height: 130%;
+  }
+  .text4-b {
+    font-size: 1.3rem;
+    line-height: 130%;
+  }
+  .text5 {
+    font-size: 1.3rem;
+    line-height: 130%;
+  }
+}
+
+.text-color-transp {
+  color: var(--white-trans50);
+}
+.text-color-link {
+  color: var(--orange-m);
+  transition: color 0.5s ease-out;
+}
+.text-color-link:hover {
+  color: var(--orange-l);
 }
