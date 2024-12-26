@@ -1,0 +1,36 @@
+.logo {
+  display: flex;
+  gap: 0.4rem;
+  width: fit-content;
+
+  &_img {
+    width: 6.4rem;
+    height: 6.4rem;
+    @media (max-width: 48em) {
+      width: 4.2rem;
+      height: 4.2rem;
+    }
+  }
+
+  &_container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    margin-top: auto;
+    margin-bottom: 0.4rem;
+    text-align: left;
+
+    @media (max-width: 48em) {
+      margin-bottom: 0.3rem;
+      gap: 0.2rem;
+
+      div:first-child {
+        font-size: 1.2rem;
+      }
+      div:last-child {
+        font-size: 1rem;
+      }
+    }
+
+  }
+}
